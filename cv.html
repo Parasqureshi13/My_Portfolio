@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CV | Paras Qureshi</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .cv-page {
+            padding: 55px 0;
+        }
+
+        .cv-container {
+            width: min(950px, 92%);
+            margin: auto;
+        }
+
+        .cv-card {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* CV HEADER */
+
+        .cv-header {
+            padding: 45px 50px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7e5f5,
+                    #eee5fb
+                );
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .cv-name {
+            font-family: 'Caveat', cursive;
+            font-size: 55px;
+            color: var(--lavender-dark);
+            line-height: 1;
+        }
+
+        .cv-role {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #6d6084;
+            font-weight: 600;
+        }
+
+        .cv-contact {
+            text-align: right;
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 2;
+        }
+
+        .cv-contact a {
+            color: #6c5b88;
+        }
+
+        /* DOWNLOAD BUTTON */
+
+        .download-area {
+            padding: 22px 50px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .download-btn {
+            border: none;
+            cursor: pointer;
+            padding: 11px 20px;
+            border-radius: 999px;
+            background: linear-gradient(
+                135deg,
+                #c49be7,
+                #e2a9d9
+            );
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(125, 87, 155, 0.15);
+        }
+
+        /* CV BODY */
+
+        .cv-body {
+            padding: 45px 50px;
+        }
+
+        .cv-section {
+            margin-bottom: 35px;
+        }
+
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-section-title {
+            font-family: 'Caveat', cursive;
+            font-size: 30px;
+            color: var(--lavender-dark);
+            margin-bottom: 13px;
+        }
+
+        .cv-text {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* TWO COLUMNS */
+
+        .cv-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+        }
+
+        /* EDUCATION */
+
+        .cv-item {
+            margin-bottom: 18px;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-item h3 {
+            font-size: 13px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .cv-item .date {
+            font-size: 10px;
+            color: #9b87b1;
+            margin-bottom: 5px;
+        }
+
+        .cv-item p {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* SKILLS */
+
+        .cv-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cv-skill {
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #f6edf8;
+            border: 1px solid #eadcf0;
+            font-size: 10px;
+            color: #62577b;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-item {
+            padding-left: 18px;
+            border-left: 2px solid #e5cce8;
+        }
+
+        /* PROJECTS */
+
+        .cv-projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .cv-project {
+            padding: 15px;
+            border-radius: 13px;
+            background: #fcf7fd;
+            border: 1px solid var(--border);
+        }
+
+        .cv-project h3 {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .cv-project p {
+            font-size: 10px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        /* CERTIFICATIONS */
+
+        .cert-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .cert {
+            padding: 13px 16px;
+            border-radius: 12px;
+            background: #faf4fc;
+            border: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* DARK MODE */
+
+        body.dark .cv-card {
+            background: #211c2b;
+        }
+
+        body.dark .cv-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #30263b,
+                    #29243a
+                );
+        }
+
+        body.dark .cv-project,
+        body.dark .cert {
+            background: #2a2435;
+        }
+
+        body.dark .cv-skill {
+            background: #30283c;
+            border-color: #40354c;
+            color: #d9d0e8;
+        }
+
+        /* PRINT */
+
+        @media print {
+
+            .navbar,
+            footer,
+            .download-area {
+                display: none;
+            }
+
+            .cv-page {
+                padding: 0;
+            }
+
+            .cv-container {
+                width: 100%;
+            }
+
+            .cv-card {
+                box-shadow: none;
+                border: none;
+            }
+
+            body {
+                background: white;
+            }
+
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 700px) {
+
+            .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 35px 25px;
+            }
+
+            .cv-contact {
+                text-align: left;
+            }
+
+            .download-area {
+                padding: 18px 25px;
+            }
+
+            .cv-body {
+                padding: 35px 25px;
+            }
+
+            .cv-name {
+                font-size: 46px;
+            }
+
+            .cv-columns {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cv-projects {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                ♡ Paras Qureshi
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="skills.html">
+                    Skills
+                </a>
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+            </nav>
+
+            <div class="nav-right">
+
+                <button id="themeButton" class="theme-button">
+                    ☾
+                </button>
+
+                <button id="menuButton" class="menu-button">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CV ================= -->
+
+    <main>
+
+        <section class="cv-page">
+
+            <div class="cv-container">
+
+                <div class="cv-card">
+
+
+                    <!-- CV HEADER -->
+
+                    <div class="cv-header">
+
+                        <div>
+
+                            <h1 class="cv-name">
+                                Paras Qureshi ♡
+                            </h1>
+
+                            <p class="cv-role">
+                                Frontend Developer
+                            </p>
+
+                        </div>
+
+
+                        <div class="cv-contact">
+
+                            <div>
+                                <i class="fa-solid fa-envelope" style="color: rgb(81, 72, 120);"></i> parasqureshi@gmail.com
+                            </div>
+
+                            <div>
+                             <i class="fa-brands fa-github" style="color: rgb(81, 72, 120);"></i>  Parasqureshi13
+                            </div>
+
+                            <div>
+                              <i class="fa-brands fa-linkedin" style="color: rgb(81, 72, 120);"></i> Paras Qureshi
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DOWNLOAD -->
+
+                    <div class="download-area">
+
+                        <button
+                            class="download-btn"
+                            onclick="window.print()">
+
+                            ↓ Download CV
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- CV BODY -->
+
+                    <div class="cv-body">
+
+
+                        <!-- SUMMARY -->
+
+                        <section class="cv-section">
+
+                            <h2 class="cv-section-title">
+                                Profile ♡
+                            </h2>
+
+                            <p class="cv-text">
+
+                           Passionate and creative Frontend Developer with hands-on experience building clean, responsive, and user-friendly websites. Skilled in HTML, CSS, JavaScript, and modern frontend tools, with a strong interest in creating functional and engaging web experiences. I enjoy turning ideas into real-world websites while continuously learning, improving, and expanding my development skills.
+
+
+                            </p>
+
+                        </section>
+
+
+                        <!-- TWO COLUMNS -->
+
+                        <div class="cv-columns">
+
+
+                            <!-- EDUCATION -->
+
+                            <section class="cv-section">
+
+                                <h2 class="cv-section-title">
+                                    Education <i class="fa-solid fa-user-graduate" style="color: rgb(81, 72, 120);"></i>
+                                </h2>
+
+
+                                <div class="cv-item">
+
+                                    <h3>
+                                        Intermediate — Computer Science
+                                    </h3>
+
+                                    <div class="date">
+                                        Completed 2026
+                                    </div>
+
+                                    <p>
+                                     Studied Computer Science with a focus on programming, mathematics, and computer fundamentals.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="cv-item">
+
+                                    <h3>
+                                        Matriculation — Computer Science
+                                    </h3>
+
+                                    <div class="date">
+                                        Completed 2024
+                                    </div>
+
+                                    <p>
+                                       Completed secondary education with Computer Science, building a strong foundation in programming and computer fundamentals.
+                                    </p>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- SKILLS -->
+
+                            <section class="cv-section">
+
+                                <h2 class="cv-section-title">
+                                    Technical Skills   <i class="fa-solid fa-computer" style="color: rgb(81, 72, 120);"></i>
+                                </h2>
+
+                                <div class="cv-skills">
+
+                                    <span class="cv-skill">
+                                        HTML
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        CSS
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        JavaScript
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        Bootstrap
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        jQuery
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        PHP
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        MySQL
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        GitHub
+                                    </span>
+
+                                    <span class="cv-skill">
+                                        VS Code
+                                    </span>
+
+                                </div>
+
+                            </section>
+
+
+                        </div>
+
+
+                        <!-- EXPERIENCE -->
+
+                        <section class="cv-section">
+
+                            <h2 class="cv-section-title">
+                                Experience <i class="fa-solid fa-business-time" style="color: rgb(81, 72, 120);"></i>
+                            </h2>
+
+
+                            <div class="experience-item">
+
+                                <div class="cv-item">
+
+                                    <h3>
+                                        Web Development Projects & Internships
+                                    </h3>
+
+                                    <div class="date">
+                                        2024 — Present
+                                    </div>
+
+                                    <p>
+
+                                    Developed multiple responsive websites and web projects using HTML, CSS, JavaScript, PHP, and MySQL. Worked on diverse layouts, interactive features, responsive designs, and real-world internship assignments, gaining hands-on experience in building functional and user-friendly web experiences.
+
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- PROJECTS -->
+
+                        <section class="cv-section">
+
+                            <h2 class="cv-section-title">
+                                Selected Projects <i class="fa-regular fa-folder-open" style="color: rgb(81, 72, 120);"></i>
+                            </h2>
+
+
+                            <div class="cv-projects">
+
+
+                                <div class="cv-project">
+
+                                    <h3>
+                                        Café Crescent
+                                    </h3>
+
+                                    <p>
+                                        Responsive cafe website with
+                                        modern layout and menu sections.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="cv-project">
+
+                                    <h3>
+                                      Calculator
+                                    </h3>
+
+                                    <p>
+                                       Calculator website designed with
+                                        responsive frontend layout.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="cv-project">
+
+                                    <h3>
+                                        SecurePass Pro
+                                    </h3>
+
+                                    <p>
+                                    A simple and interactive password generator that creates strong and customizable passwords.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="cv-project">
+
+                                    <h3>
+                                       Kanban Board
+                                    </h3>
+
+                                    <p>
+                                      A clean and interactive Kanban board designed to organize tasks, manage projects, and track progress
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- CERTIFICATIONS -->
+
+                        <section class="cv-section">
+
+                            <h2 class="cv-section-title">
+                                Certifications <i class="fa-solid fa-award" style="color: rgb(81, 72, 120);"></i>
+                            </h2>
+
+
+                            <div class="cert-list">
+
+                                <div class="cert">
+                                    Frontend Development Course — IPS Academy
+                                </div>
+
+                                <div class="cert">
+                                    Full-Stack Web Development Course —
+                                    Gexton Education
+                                </div>
+
+                                <div class="cert">
+                                    Web Development Internship Certificates
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- LANGUAGES -->
+
+                        <section class="cv-section">
+
+                            <h2 class="cv-section-title">
+                                Languages <i class="fa-solid fa-language" style="color: rgb(81, 72, 120);"></i>
+                            </h2>
+
+                            <div class="cv-skills">
+
+                                <span class="cv-skill">
+                                    English
+                                </span>
+
+                                <span class="cv-skill">
+                                    Urdu
+                                </span>
+
+                            </div>
+
+                        </section>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-name">
+                Paras Qureshi ♡
+            </div>
+
+            <div class="social-links">
+
+                <a href="https://github.com/Parasqureshi13"
+                    target="_blank">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/paras-qureshi-65b89837a/"
+                    target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Paras Qureshi
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
