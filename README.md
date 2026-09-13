@@ -39,7 +39,7 @@ Completed 2024
 
 ## 🌐 Portfolio
 
-Live Website: `Coming Soon`
+Live Website: https://parasqureshi13.github.io/My_Portfolio/
 
 ## 📬 Contact
 
